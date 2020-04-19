@@ -1,0 +1,78 @@
+Docker Test - 19/04/2020
+
+Question1 
+
+S1 make a docker file (for parent process)
+##
+from alpine
+maintainer aditi
+cmd date "+%T"
+###
+
+S2 build image with tag
+go to the directory where docker file is present using powershell then run command
+docker build -t alpine:aditi .
+
+S3 running the container
+run the command in power shell
+docker run --name aditic1q1 -it --rm alpine:aditi  > question1.txt
+## the output will be stord in the file question1.txt
+
+Question 2
+S1 building image
+docker build -t adhoc:aditi  https://github.com/redashu/summer2020dockertest.git
+
+S2 taging it
+docker tag adhoc:aditi aditi119/adhoc:aditi119
+
+login:
+docker login
+
+pushing image:
+docker push aditi119/adhoc:aditi
+
+
+
+Question 3
+
+S1 
+ In a folder
+a) make a html page 
+ 
+<html>
+<body>
+  <h1> Hello world ! </h1>
+  <h2> Docker test </h2>
+</body>
+</html>
+save it with name index.html 
+
+b) make a docker file
+
+from nginx
+maintainer aditi
+copy  web /usr/share/nginx/html/
+expose 80
+
+S2 building image
+go to the directory where your dockerfile and html code is present using windows powershell then run command
+
+docker build -t dockerashu/ckad:v2 .
+
+S3 Creating container 
+run the command
+docker run --name aditc3q3 -d -p 3331:80  dockerashu/ckad:v2
+
+S4 Running the webapp
+run the webapp using the IP in browswer
+ex- 52.204.127.145:3331
+
+Question 5
+
+S1 creating volume
+docker volume create aditiq5
+
+attaching volume to container:
+docker run -it --name aditi5q15 -v aditi5q5:/etc/passwd- -v aditi51:/adhocvol/user.txt alpine sh
+
+
